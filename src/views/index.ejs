@@ -1,9 +1,25 @@
+<!--In the newly created file index.ejs complete the following:
+
+Include header.ejs Hint: <%- %>
+Add a div element with a class of container.
+In the container div display the value of the title key in an h1 element. Hint: <%= %>
+Add an anchor element below the h1 that points to the /profile URL path, and has the text content Profile.
+Below the container div add a line break and another anchor element that points to the /transfer URL path with the text content Transfer.
+Include footer.ejs Hint: <%- %>
+-->
 <%- include('header') %>
 
   <div class="container">
     <h1><%= title %></h1>
     <a href='/profile'>Profile</a>
   </div>
+
+  <!--In index.ejs and after the container div, add the ejs markup to include the summary view for each account in the accounts variable: savings, checking, and credit. Hint: you will have three include statements(<%- %>), each include function will be passed a different account, i.e { account: accounts.checking }.
+-->
+
+  <%- include('summary', { account: accounts.checking }) %>
+  <%- include('summary', { account: accounts.savings }) %>
+  <%- include('summary', { account: accounts.credit }) %>
 
   <br><a href='/transfer'>Transfer</a>
 

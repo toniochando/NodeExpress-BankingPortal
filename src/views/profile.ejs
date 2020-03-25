@@ -1,0 +1,25 @@
+<!--Create the Profile View
+
+@profile-ejs-create-view In the newly created file profile.ejs complete the following:
+
+    Include header.ejs Hint: <%- %>
+    Add an h1 element with the text content Profile
+    Add a div element below the h1 that displays each detail of the user object (passed to the view in the next step) on a new line (wrap each detail in a p element). The details are user.name, user.username, user.phone, user.email, and user.address.
+    Below the div add a line break, then an anchor element that points to the root URL path and has the text content Back to Account Summary.
+    Include footer.ejs Hint: <%- %>
+-->
+<%- include('header.ejs') %>
+
+  <h1>Profile</h1>
+
+  <div>
+    <p><%= user.name %></p>
+    <p><%= user.username %></p>
+    <p><%= user.phone %></p>
+    <p><%= user.email %></p>
+    <p><%= user.address %></p>
+  </div>
+
+  <br><a href='/'>Back to Account Summary</a>
+
+<%- include('footer.ejs') %>

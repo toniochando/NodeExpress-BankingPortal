@@ -1,6 +1,10 @@
 <%- include('header'); %>
 
+<!--In account.ejs after the header markup, add the ejs markup to include the transactions view. Pass the include function an object with the following key value pair:
 
+    account: account 
+-->
+<%- include('transactions', { account: account }) %>
 
   <% if (account.unique_name == 'credit' && account.balance > 0) { %>
     <br><a href="/payment">Make a Payment</a>
