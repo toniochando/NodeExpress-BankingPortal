@@ -89,9 +89,16 @@ In app.js locate the transfer and payment post and get routes, cut and paste the
 Error
 
 The transfer get route has not been removed from app.js.
+In app.js where your account routes used to be, call the use function on app with two arguments. The first argument should be /account and the second is the accountRoutes const.
 */
 app.use('/account', accountRoutes);
-//app.use('/services', servicesRoutes);
+
+/*In app.js where your transfer and payment routes used to be, call the use function on app with two arguments. The first argument should be /services and the second is the servicesRoutes const.
+Error
+
+Are you using your services routes?
+*/
+app.use('/services', servicesRoutes);
 
 /*In app.js near the index route, create a get route that points at the /savings URL path. Render the account view and pass an object with the following key value pair:
 

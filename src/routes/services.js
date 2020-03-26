@@ -34,4 +34,5 @@ router.post('/payment', (req, res) => {
     writeJSON();
     res.render('payment', {message: 'Payment Successful', account: accounts.credit});
 });
+/*In services.js export the router using the module.exports syntax.*/
 module.exports = router;
