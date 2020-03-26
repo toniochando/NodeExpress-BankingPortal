@@ -77,6 +77,10 @@ app.get('/', (req, res) => res.render('index', { title: 'Account Summary', accou
     account: accounts.savings
 
 Now that you have created the savings account route, create similar routes for the checking and credit accounts in the app.js file.
+
+Move Account Routes
+
+In app.js locate the savings, checking, and credit get routes, cut and paste these routes in accounts.js below the require statements. Now in accounts.js update the routes to be part of the router by replacing app.get with router.get.
 */
 /*
 app.get('/savings', (req, res) => res.render('account', { account: accounts.savings }));

@@ -12,7 +12,19 @@ Has data.js been required and the accounts const been created in src/routes/acco
 */
 const { accounts } = require('../data.js');
 
-
+/*
+In app.js locate the savings, checking, and credit get routes, cut and paste these routes in accounts.js below the require statements. Now in accounts.js update the routes to be part of the router by replacing app.get with router.get.
+*/
 router.get('/savings', (req, res) =>  res.render('account', { account: accounts.savings }));
 router.get('/checking', (req, res) => res.render('account', { account: accounts.checking }));
 router.get('/credit', (req, res) => res.render('account', { account: accounts.credit }));
+
+/*
+Export the Router
+
+In accounts.js export the router using the module.exports syntax.
+Error
+
+src/routes/accounts.js is not exporting the router function.
+*/
+module.exports = router;
