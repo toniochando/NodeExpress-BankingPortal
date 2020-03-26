@@ -95,19 +95,21 @@ app.get('/transfer', (req, res) =>  res.render('transfer'));
 /*
 Switch back to app.js and create a post route that points to the /transfer URL path. We will fill in the body of the function for this route in the next few steps.
 */
+/*--> services.js
 app.post('/transfer', (req, res) => {
-
+*/
     /*Still in app.js and in the function body of the post route we are going to calculate the new balances for the account we are transferring from.
     We have several values that have been entered into the HTML form in transfer.ejs. Upon form submission the request body will contain from, to, and amount. Current account balances are stored in the accounts object.
     As an example to access the current balance for the savings account use accounts["savings"].balance. Using these values, calculate the new balance of the account we are transferring from. Then set the balance to that amount.
-    */
+    
     accounts[req.body.from].balance -= req.body.amount;
     accounts[req.body.to].balance += parseInt(req.body.amount, 10);
+    */
 
     /*In app.js locate the lines in the transfer post route function body that are responsible for writing JSON data to a file and replace them with a call to the writeJSON() function.
-    */
+    
     writeJSON();
-
+    */
     
 
     /*Still in app.js and in the function body of the post route, convert the accounts javascript object to a string using the JSON.stringify function save this string in a variable called accountsJSON.
@@ -121,13 +123,16 @@ app.post('/transfer', (req, res) => {
     If at any point accounts.json gets overwritten and you would like the original back copy the JSON from account_backup.json to account.json
     Specify the absolute file path using path.join & __dirname
     Write the file with the UTF8 encoding.
-    */
+    
     fs.writeFileSync(path.join(__dirname, 'json','accounts.json'), accountsJSON, 'utf8');
+    */
     /*Still in app.js and in the function body of the post route, render the transfer view and pass an object with the following key value pair:
     message: "Transfer Completed"
     */
+   /*
     res.render('transfer', {message: 'Transfer Completed'});
 });
+*/
 
 /*The payment feature of the application is similar to the transfer feature. Add this new feature using this general outline of the steps:
 
