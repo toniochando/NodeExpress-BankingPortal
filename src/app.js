@@ -20,6 +20,14 @@ Error
 data.js is not exporting the accounts object.
 */
 const { accounts, users, writeJSON } = require('./data.js');
+/*
+In app.js locate the transfer and payment post and get routes, cut and paste these routes to services.js below the require statements. Now in services.js update the routes to be part of the router by replacing app.get with router.get and app.post with router.post.
+Error
+
+Were all four routes moved to services.js?
+*/
+const accountRoutes = require('./routes/accounts.js')
+const servicesRoutes = require('./routes/services.js')
 
 /*Still in app.js, use the set function of your newly created app to configure the directory where our views can be found. Hint: path.join() & __dirname
 
@@ -147,21 +155,22 @@ app.post('/transfer', (req, res) => {
         Write accountsJSON to a file. Note: write the file with the UTF8 encoding.
         Render the payment view and pass an object with the following key value pairs, { message: "Payment Successful", account: accounts.credit }
 */
-app.get('/payment', (req, res) => res.render('payment', {account: accounts.credit}));
-app.post('/payment', (req, res) => {
-    accounts.credit.balance -= req.body.amount;
-    accounts.credit.available += parseInt(req.body.amount);
+
+//app.get('/payment', (req, res) => res.render('payment', {account: accounts.credit}));
+//app.post('/payment', (req, res) => {
+//    accounts.credit.balance -= req.body.amount;
+ //   accounts.credit.available += parseInt(req.body.amount);
 
     /*In app.js locate the lines in the payment post route function body that are responsible for writing JSON data to a file and replace them with a call to the writeJSON() function.
     */
-   writeJSON();
+//   writeJSON();
 
    /* 
    let accountsJSON = JSON.stringify(accounts, null, 4)
     fs.writeFileSync(path.join(__dirname, 'json','accounts.json'), accountsJSON, 'utf8');
     */
-    res.render('payment', {message: 'Payment Successful', account: accounts.credit});
-});
+//    res.render('payment', {message: 'Payment Successful', account: accounts.credit});
+//});
 
 /*In app.js below the account get routes create a get route that points at the /profile URL path. Render the profile view and pass an object with the following key value pair:
 
