@@ -28,14 +28,17 @@ app.use(express.static(path.join(__dirname, '/public')));
 */
 app.use(express.urlencoded({ extended: true }));
 
+
 /*In app.js above the index route, use the readFileSync function of the built-in fs library to read the contents of the file located at src/json/accounts.json. Note: read the file with the UTF8 encoding.
 
 Declare a const called accountData to store the contents of the file. accountData now contains JSON, use JSON.parse to convert it to a javascript object.
 
 Declare a const called accounts to store this javascript object.
 */
-const accountData = fs.readFileSync(path.join(__dirname, 'json', 'accounts.json'), 'utf8');
+/*const accountData = fs.readFileSync(path.join(__dirname, 'json', 'accounts.json'), 'utf8');
 const accounts = JSON.parse(accountData);
+*/
+
 
 /* In app.js near the index route, use the readFileSync function of the built-in fs library to read the contents of the file located at src/json/users.json. Note: read the file with the UTF8 encoding.
 
@@ -43,8 +46,12 @@ Declare a const called userData to store the contents of the file. userData now 
 
 Declare a const called users to store this javascript object.
 */
+
+/*
 const userData = fs.readFileSync(path.join(__dirname, 'json', 'users.json'), 'utf8');
 const users = JSON.parse(userData);
+*/
+
 
 /*
 In app.js create a get route that points at the root URL path '/'. Render the index view and pass an object with a single key value pair, title: 'Index'.
@@ -83,9 +90,15 @@ app.post('/transfer', (req, res) => {
     accounts[req.body.from].balance -= req.body.amount;
     accounts[req.body.to].balance += parseInt(req.body.amount, 10);
 
+    
+    writeJSON();
+
+    
+
     /*Still in app.js and in the function body of the post route, convert the accounts javascript object to a string using the JSON.stringify function save this string in a variable called accountsJSON.
-    */   
+       
     let accountsJSON = JSON.stringify(accounts, null, 4)
+    */
 
     /*Still in app.js and in the function body of the post route, use the writeFileSync function of the built-in fs library to write the variable accountsJSON to the file located at json/accounts.json.
 
