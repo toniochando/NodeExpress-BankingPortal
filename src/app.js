@@ -10,6 +10,14 @@ const app = new express();
 
 /*
 In app.js locate the lines that are responsible for reading and parsing JSON from the src/json/accounts.json file. Copy and paste them to the new data.js file below the require statements.
+Back In app.js require data.js and at the same time use object destructing to create three constants for accounts, users, and writeJSON.
+
+Remove the lines in app.js that create the accountData, accounts, userData, and users consts.
+
+accounts, users, and the writeJSON function are now brought in by the require statement. Note: use relative paths to require the data module './data'
+Error
+
+data.js is not exporting the accounts object.
 */
 const { accounts, users, writeJSON } = require('./data.js');
 
