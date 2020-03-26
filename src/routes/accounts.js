@@ -11,3 +11,8 @@ Error
 Has data.js been required and the accounts const been created in src/routes/accounts.js?
 */
 const { accounts } = require('../data.js');
+
+
+router.get('/savings', (req, res) =>  res.render('account', { account: accounts.savings }));
+router.get('/checking', (req, res) => res.render('account', { account: accounts.checking }));
+router.get('/credit', (req, res) => res.render('account', { account: accounts.credit }));
