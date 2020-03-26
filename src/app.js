@@ -83,6 +83,16 @@ app.get('/', (req, res) => res.render('index', { title: 'Index' }));
 */
 app.get('/', (req, res) => res.render('index', { title: 'Account Summary', accounts: accounts }));
 
+/* Move Services Routes
+
+In app.js locate the transfer and payment post and get routes, cut and paste these routes to services.js below the require statements. Now in services.js update the routes to be part of the router by replacing app.get with router.get and app.post with router.post.
+Error
+
+The transfer get route has not been removed from app.js.
+*/
+app.use('/account', accountRoutes);
+//app.use('/services', servicesRoutes);
+
 /*In app.js near the index route, create a get route that points at the /savings URL path. Render the account view and pass an object with the following key value pair:
 
     account: accounts.savings
@@ -101,13 +111,13 @@ app.get('/credit', (req, res) => res.render('account', { account: accounts.credi
 
 /*Near your other routes in app.js create a get route that points to the /transfer URL path. It should render the transfer view
 */
-app.get('/transfer', (req, res) =>  res.render('transfer'));
+//app.get('/transfer', (req, res) =>  res.render('transfer'));
 
 /*
 Switch back to app.js and create a post route that points to the /transfer URL path. We will fill in the body of the function for this route in the next few steps.
 */
 /*--> services.js
-app.post('/transfer', (req, res) => {
+//app.post('/transfer', (req, res) => {
 */
     /*Still in app.js and in the function body of the post route we are going to calculate the new balances for the account we are transferring from.
     We have several values that have been entered into the HTML form in transfer.ejs. Upon form submission the request body will contain from, to, and amount. Current account balances are stored in the accounts object.
