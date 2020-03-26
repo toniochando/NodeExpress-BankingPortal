@@ -21,10 +21,13 @@ data.js is not exporting the accounts object.
 */
 const { accounts, users, writeJSON } = require('./data.js');
 /*
-In app.js locate the transfer and payment post and get routes, cut and paste these routes to services.js below the require statements. Now in services.js update the routes to be part of the router by replacing app.get with router.get and app.post with router.post.
+
+Require account routes
+
+Switch to app.js and require the ./routes/accounts.js file and store a reference to it in a const called accountRoutes.
 Error
 
-Were all four routes moved to services.js?
+Has the accountRoutes const been created app.js?
 */
 const accountRoutes = require('./routes/accounts.js')
 const servicesRoutes = require('./routes/services.js')
