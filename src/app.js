@@ -8,6 +8,11 @@ const path = require('path');
 const express = require('express');
 const app = new express();
 
+/*
+In app.js locate the lines that are responsible for reading and parsing JSON from the src/json/accounts.json file. Copy and paste them to the new data.js file below the require statements.
+*/
+const { accounts, users, writeJSON } = require('./data.js');
+
 /*Still in app.js, use the set function of your newly created app to configure the directory where our views can be found. Hint: path.join() & __dirname
 
 Using the same set function, set the view engine to ejs. 
@@ -117,8 +122,6 @@ app.post('/payment', (req, res) => {
     fs.writeFileSync(path.join(__dirname, 'json','accounts.json'), accountsJSON, 'utf8');
     res.render('payment', {message: 'Payment Successful', account: accounts.credit});
 });
-
-
 
 /*In app.js below the account get routes create a get route that points at the /profile URL path. Render the profile view and pass an object with the following key value pair:
 
