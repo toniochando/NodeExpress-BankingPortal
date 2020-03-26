@@ -13,3 +13,14 @@ const accounts = JSON.parse(accountData);
 */
 const userData = fs.readFileSync(path.join(__dirname, 'json', 'users.json'), 'utf8');
 const users = JSON.parse(userData)
+
+/*
+In data.js below the account and user data lines create a function called writeJSON. Hint: It is best to use ES6 arrow style function (=>).
+Error
+
+data.js does not contain a function called writeJSON.
+*/
+const writeJSON = () => {
+    let accountsJSON = JSON.stringify(accounts, null, 4)
+    fs.writeFileSync(path.join(__dirname, 'json','accounts.json'), accountsJSON, 'utf8');
+}
