@@ -78,9 +78,11 @@ app.get('/', (req, res) => res.render('index', { title: 'Account Summary', accou
 
 Now that you have created the savings account route, create similar routes for the checking and credit accounts in the app.js file.
 */
+/*
 app.get('/savings', (req, res) => res.render('account', { account: accounts.savings }));
 app.get('/checking', (req, res) => res.render('account', { account: accounts.checking }));
 app.get('/credit', (req, res) => res.render('account', { account: accounts.credit }));
+*/
 
 /*Near your other routes in app.js create a get route that points to the /transfer URL path. It should render the transfer view
 */
